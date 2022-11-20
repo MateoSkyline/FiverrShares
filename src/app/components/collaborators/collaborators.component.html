@@ -1,18 +1,53 @@
-<p-card>
-    <p-table [value]="collaborators">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Name</th>
-                <th>Share as translator</th>
-                <th>Share as collaborator</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-collaborator>
-            <tr>
-                <td>{{collaborator.name}}</td>
-                <td>{{collaborator.asTranslator}}</td>
-                <td>{{collaborator.asCollaborator}}</td>
-            </tr>
-        </ng-template>
-    </p-table>
-</p-card>
+<p-table [value]="collaborators" styleClass="p-datatable-sm" responsiveLayout="stack" >
+    <ng-template pTemplate="header">
+        <tr>
+            <th rowspan="2">
+                <button (click)="addEmpty()" pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-success p-button-outlined"></button>
+            </th>
+            <th rowspan="2">Name</th>
+            <th colspan="3">Share as</th>
+        </tr>
+        <tr>
+            <th>Translator</th>
+            <th>Collaborator</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-collaborator>
+        <tr>
+            <td pEditableColumn colspan="2">
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input style="width: 120px;" pInputText type="text" [(ngModel)]="collaborator.name" (ngModelChange)="update(collaborator)">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{collaborator.name}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input style="width: 60px;" pInputText type="text" [(ngModel)]="collaborator.asTranslator" (ngModelChange)="update(collaborator)">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{collaborator.asTranslator}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input style="width: 60px;" pInputText type="text" [(ngModel)]="collaborator.asCollaborator" (ngModelChange)="update(collaborator)">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{collaborator.asCollaborator}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+                <button (click)="remove(collaborator)" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

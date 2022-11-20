@@ -27,4 +27,11 @@ export class StorageService {
     data.push(object);
     this.save<T>(data, name);
   }
+
+  remove<T>(id: string, name: string) : void {
+    var data = this.read<T & { id?: string }>(name);
+    if(data == null) return
+    data = data?.filter(x => x.id !== id);
+    this.save<T>(data, name);
+  }
 }
