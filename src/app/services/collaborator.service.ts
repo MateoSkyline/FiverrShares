@@ -16,13 +16,13 @@ export class CollaboratorService {
     return this.storageService.read<Collaborator>(this.storageName);
   }
 
+  save(collaborators: Collaborator[]) : void {
+    this.storageService.save<Collaborator>(collaborators, this.storageName);
+  }
+
   add(collaborator: Collaborator) : void {
     collaborator.id = uuidv4();
     this.storageService.add<Collaborator>(collaborator, this.storageName);
-  }
-
-  save(collaborators: Collaborator[]) : void {
-    this.storageService.save<Collaborator>(collaborators, this.storageName);
   }
 
   update(collaborator: Collaborator) : void {

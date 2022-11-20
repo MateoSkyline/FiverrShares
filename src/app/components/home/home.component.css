@@ -1,0 +1,15 @@
+.collaborators {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.logo {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo img {
+    height: 200px;
+}

@@ -1,8 +1,16 @@
-<div class="grid">
-    <div class="xl:col-8 col-12">
+<div class="logo">
+    <img src="/assets/logo.png" alt="image">
+</div>
 
-    </div>
-    <div class="xl:col-4 col-12">
-        <app-collaborators></app-collaborators>
+<div class="grid">
+    <div class="col-12">
+        <button (click)="collaborators.toggle($event)" pButton pRipple type="button" icon="pi pi-user" 
+            class="collaborators p-button-rounded p-button-info p-button-outlined"></button>
     </div>
 </div>
+
+<p-overlayPanel #collaborators>
+    <ng-template pTemplate>
+        <app-collaborators></app-collaborators>
+    </ng-template>
+</p-overlayPanel>

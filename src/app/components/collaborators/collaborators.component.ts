@@ -30,7 +30,6 @@ export class CollaboratorsComponent implements OnInit {
 
   update(collaborator: Collaborator) {
     this.collaboratorService.update(collaborator);
-    this.getCollaborators();
   }
 
   remove(collaborator: Collaborator) {
