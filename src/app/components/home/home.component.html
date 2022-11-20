@@ -3,13 +3,15 @@
 </div>
 
 <div class="grid">
-    <div class="col-12">
-        <button (click)="collaborators.toggle($event)" pButton pRipple type="button" icon="pi pi-user" 
-            class="collaborators p-button-rounded p-button-info p-button-outlined"></button>
-        <button (click)="neworder.toggle($event)" pButton pRipple type="button" icon="pi pi-plus" 
-            class="new-order p-button-rounded p-button-info p-button-outlined"></button>
+    <div class="xl:col-8 xl:col-offset-2 col-12">
+        <app-order-list [newOrder]="newOrder"></app-order-list>
     </div>
 </div>
+
+<button (click)="collaborators.toggle($event)" pButton pRipple type="button" icon="pi pi-user" 
+    class="collaborators p-button-rounded p-button-info p-button-outlined"></button>
+<button (click)="neworder.toggle($event)" pButton pRipple type="button" icon="pi pi-plus" 
+    class="new-order p-button-rounded p-button-info p-button-outlined"></button>
 
 <p-overlayPanel #collaborators>
     <ng-template pTemplate>

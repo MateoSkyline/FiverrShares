@@ -16,13 +16,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CollaboratorsComponent } from './components/collaborators/collaborators.component';
 import { AddOrderComponent } from './components/add-order/add-order.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CollaboratorsComponent,
-    AddOrderComponent
+    AddOrderComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,
