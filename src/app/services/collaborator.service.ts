@@ -37,7 +37,7 @@ export class CollaboratorService {
   }
 
   remove(collaborator: Collaborator) : void {
-    this.storageService.remove(collaborator.id, this.storageName);
+    this.storageService.remove<Collaborator>(collaborator.id, this.storageName);
   }
 
   addEmpty() : void {
