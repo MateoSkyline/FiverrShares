@@ -1,9 +1,3 @@
-.collaborators {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-
 .logo {
     width: 100%;
     text-align: center;
@@ -12,4 +6,16 @@
 
 .logo img {
     height: 200px;
+}
+
+.collaborators {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.new-order {
+    position: absolute;
+    right: 10px;
+    top: 70px;
 }

@@ -6,11 +6,19 @@
     <div class="col-12">
         <button (click)="collaborators.toggle($event)" pButton pRipple type="button" icon="pi pi-user" 
             class="collaborators p-button-rounded p-button-info p-button-outlined"></button>
+        <button (click)="neworder.toggle($event)" pButton pRipple type="button" icon="pi pi-plus" 
+            class="new-order p-button-rounded p-button-info p-button-outlined"></button>
     </div>
 </div>
 
 <p-overlayPanel #collaborators>
     <ng-template pTemplate>
-        <app-collaborators></app-collaborators>
+        <app-collaborators (newCollaboratorEvent)="reloadCollaborators($event)"></app-collaborators>
+    </ng-template>
+</p-overlayPanel>
+
+<p-overlayPanel #neworder>
+    <ng-template pTemplate>
+        <app-add-order (newOrderEvent)="reloadOrders($event)" [newCollaborator]="newCollaborator"></app-add-order>
     </ng-template>
 </p-overlayPanel>

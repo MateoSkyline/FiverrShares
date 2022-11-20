@@ -4,4 +4,5 @@ export class Order {
     buyer: string = '';
     amount: number = 0;
     translator: string = '';
+    paid: boolean = false;
 }

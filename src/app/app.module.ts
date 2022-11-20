@@ -9,17 +9,20 @@ import { ButtonModule } from 'primeng/button';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CollaboratorsComponent } from './components/collaborators/collaborators.component';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CollaboratorsComponent
+    CollaboratorsComponent,
+    AddOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { CollaboratorsComponent } from './components/collaborators/collaborators
     ButtonModule,
     OverlayPanelModule,
     InputTextModule,
-    InputNumberModule
+    InputNumberModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
