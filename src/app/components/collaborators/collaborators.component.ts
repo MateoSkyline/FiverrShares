@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Collaborator } from 'src/app/models/collaborator.model';
+import { CollaboratorService } from 'src/app/services/collaborator.service';
 
 @Component({
   selector: 'app-collaborators',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollaboratorsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private collaboratorService: CollaboratorService) { }
+
+  collaborators: Collaborator[] = [];
 
   ngOnInit(): void {
+    this.collaborators = this.collaboratorService.read()!;
   }
 
 }

@@ -1,1 +1,18 @@
-<p>collaborators works!</p>
+<p-card>
+    <p-table [value]="collaborators">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Share as translator</th>
+                <th>Share as collaborator</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-collaborator>
+            <tr>
+                <td>{{collaborator.name}}</td>
+                <td>{{collaborator.asTranslator}}</td>
+                <td>{{collaborator.asCollaborator}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>
