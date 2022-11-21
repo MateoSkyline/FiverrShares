@@ -1,0 +1,16 @@
+<p-table [value]="payouts">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Translator</th>
+            <th>Amount</th>
+            <th>Orders</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-payout>
+        <tr>
+            <td>{{payout.translator}}</td>
+            <td>{{payout.amount | currency:'USD'}}</td>
+            <td>{{payout.orders}}</td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -18,13 +18,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CollaboratorsComponent } from './components/collaborators/collaborators.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
+import { PayoutComponent } from './components/payout/payout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CollaboratorsComponent,
-    OrderListComponent
+    OrderListComponent,
+    PayoutComponent
   ],
   imports: [
     BrowserModule,

@@ -6,10 +6,10 @@
     <div class="xl:col-8 xl:col-offset-2 col-12">
         <p-tabView>
             <p-tabPanel header="Orders List">
-                <app-order-list [newCollaborator]="newCollaborator"></app-order-list>
+                <app-order-list (newOrderEvent)="newOrder" [newCollaborator]="newCollaborator"></app-order-list>
             </p-tabPanel>
-            <p-tabPanel header="Paid out">
-                Content 2
+            <p-tabPanel header="Payout">
+                <app-payout [newOrder]="newOrder" [newCollaborator]="newCollaborator"></app-payout>
             </p-tabPanel>
         </p-tabView>
     </div>
