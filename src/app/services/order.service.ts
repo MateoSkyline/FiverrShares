@@ -29,10 +29,7 @@ export class OrderService {
     var orders: Order[] = this.read()!;
     if(orders == null) orders = [];
     var index = orders.findIndex(x => x.id == order.id);
-    orders[index].name = order.name;
-    orders[index].buyer = order.buyer;
-    orders[index].amount = order.amount;
-    orders[index].translator = order.translator;
+    orders[index] = order;
     orders.push(orders.splice(index, 1)[0]);
     this.save(orders);
   }

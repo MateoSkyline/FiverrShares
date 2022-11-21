@@ -29,9 +29,7 @@ export class CollaboratorService {
     var collaborators: Collaborator[] = this.read()!;
     if(collaborators == null) collaborators = [];
     var index = collaborators.findIndex(x => x.id == collaborator.id);
-    collaborators[index].name = collaborator.name;
-    collaborators[index].asTranslator = collaborator.asTranslator;
-    collaborators[index].asCollaborator = collaborator.asCollaborator;
+    collaborators[index] = collaborator;
     collaborators.push(collaborators.splice(index, 1)[0]);
     this.save(collaborators);
   }
