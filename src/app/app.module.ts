@@ -10,6 +10,7 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DropdownModule } from 'primeng/dropdown';
+import { TabViewModule } from 'primeng/tabview';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +40,8 @@ import { OrderListComponent } from './components/order-list/order-list.component
     OverlayPanelModule,
     InputTextModule,
     InputNumberModule,
-    DropdownModule
+    DropdownModule,
+    TabViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

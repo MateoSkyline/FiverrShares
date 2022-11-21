@@ -4,7 +4,14 @@
 
 <div class="grid">
     <div class="xl:col-8 xl:col-offset-2 col-12">
-        <app-order-list [newOrder]="newOrder"></app-order-list>
+        <p-tabView>
+            <p-tabPanel header="Orders List">
+                <app-order-list [newOrder]="newOrder"></app-order-list>
+            </p-tabPanel>
+            <p-tabPanel header="Paid out">
+                Content 2
+            </p-tabPanel>
+        </p-tabView>
     </div>
 </div>
 

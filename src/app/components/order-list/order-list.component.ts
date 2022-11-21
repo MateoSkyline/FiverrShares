@@ -20,6 +20,5 @@ export class OrderListComponent {
 
   getOrders() : void {
     this.orders = this.orderService.read()!;
-    console.log(this.orders);
   }
 }
