@@ -1,8 +1,11 @@
-<p-table #dt [value]="orders" [rows]="6" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" styleClass="p-datatable-sm"
-    [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+<p-table #dt [value]="orders" [rows]="6" [paginator]="true" styleClass="p-datatable-sm"
+    [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} orders" [showCurrentPageReport]="true">
     <ng-template pTemplate="caption">
         <div class="flex align-items-center justify-content-between">
             <h5 class="m-0">Manage orders</h5>
+            <span class="p-input-icon-left">
+                <button (click)="addOrder()" pButton pRipple type="button" label="Add new order" class="p-button-outlined p-button-success"></button>
+            </span>
         </div>
     </ng-template>
     <ng-template pTemplate="header">
@@ -21,9 +24,37 @@
             <td>{{order.amount | currency:'USD'}}</td>
             <td>{{order.translator}}</td>
             <td>
-                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
-                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+                <button (click)="editOrder(order)" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                <button (click)="removeOrder(order)" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
             </td>
         </tr>
     </ng-template>
 </p-table>
+
+<p-dialog [formGroup]="newOrderForm" [(visible)]="orderDialog" [style]="{width: '450px'}" header="Add or update order" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="grid p-fluid">
+            <div class="col-12 p-float-label mt-4">
+                <input formControlName="name" id="name" class="p-inputtext-sm"  type="text" pInputText> 
+                <label for="name">Name</label>
+            </div>
+            <div class="col-12 p-float-label mt-4">
+                <input formControlName="buyer" id="buyer" class="p-inputtext-sm"  type="text" pInputText> 
+                <label for="buyer">Buyer</label>
+            </div>
+            <div class="field col-12 mt-4">
+                <p-inputNumber formControlName="amount" [min]="5.00" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="1"
+                    decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="USD">
+                </p-inputNumber>
+            </div>
+            <div class="field col-12 mt-2">
+                <p-dropdown formControlName="translator" placeholder="Select translator" [options]="collaborators" optionLabel="name" optionValue="name"></p-dropdown>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button [disabled]="!newOrderForm.valid" pButton pRipple type="submit" label="Save" icon="pi pi-check" class="p-button-text" (click)="saveOrder()"></button>
+    </ng-template>
+</p-dialog>

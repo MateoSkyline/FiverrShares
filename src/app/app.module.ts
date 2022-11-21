@@ -11,12 +11,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DropdownModule } from 'primeng/dropdown';
 import { TabViewModule } from 'primeng/tabview';
+import { DialogModule } from 'primeng/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CollaboratorsComponent } from './components/collaborators/collaborators.component';
-import { AddOrderComponent } from './components/add-order/add-order.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 
 @NgModule({
@@ -24,7 +24,6 @@ import { OrderListComponent } from './components/order-list/order-list.component
     AppComponent,
     HomeComponent,
     CollaboratorsComponent,
-    AddOrderComponent,
     OrderListComponent
   ],
   imports: [
@@ -41,7 +40,8 @@ import { OrderListComponent } from './components/order-list/order-list.component
     InputTextModule,
     InputNumberModule,
     DropdownModule,
-    TabViewModule
+    TabViewModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
